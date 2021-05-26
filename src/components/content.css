@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+.card{
+ width: 200px;
+ height: 250px;
+ display : block;
+ margin: 50px;
+}
+.card img{
+    width:200px;
+    height:150px;
+    display : inline-flex;
+    margin: 0;
+    padding:5px;
+    border-radius: 10px;
+}
+.title-div{
+    text-align: center;
+    font-weight: 200px;
+}
+
+.card div .title{
+    text-decoration: none;
+    color:black;
+
+}
