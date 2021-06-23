@@ -11,7 +11,7 @@ const screenWidth = window.innerWidth();*/
         <>
         <nav className="navbar">
             <div className="navbar-container">
-                <Link to="/" className="navbar-logo">STAY <i class="fas fa-h-square"></i>EALTHY</Link>
+                <Link to="/" className="navbar-logo">STAY <i className="fas fa-h-square"></i>EALTHY</Link>
             </div>
         </nav>
         <div className="header-image">

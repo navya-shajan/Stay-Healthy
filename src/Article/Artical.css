@@ -1,0 +1,19 @@
+.artical-container{
+    display: block;
+    margin: 20px;
+    padding: 10px;
+    background-color: rgb(182, 211, 194);
+}
+h2{
+    margin-bottom: 15px;
+    color: red;
+    font-weight: bold;
+}
+.item{
+    padding: 6px;
+    font-family: sans-serif;
+    line-height: 1.4;
+}
+.item :hover{
+    background-color: maroon;
+}

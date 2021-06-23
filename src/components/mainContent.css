@@ -1,0 +1,52 @@
+.container{
+    display: grid;
+    margin: 50px;
+    grid-template-columns: 1fr 1fr;
+    background-color:rgb(182, 211, 194) ;
+}
+.card{
+    width: 700px;
+    border-color:black;
+    border-width: 10px;
+    box-sizing: border-box;
+    margin: 50px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-auto-rows: auto ;
+    gap: 20px;
+    grid-template-areas: "image header"
+                         "image content";
+
+}
+
+.image-container .image{
+    width:200px;
+    height:180px; 
+} 
+.image-container{
+    grid-area: image;
+    width:200px;
+    height:180px;
+}
+.title-div{
+    grid-area: header;
+    text-decoration: none; 
+}
+.content-container{
+    grid-area: content;
+    height: 150px;
+}
+.title{
+    text-decoration: none;
+    color:red;
+    font-weight: bold;
+}
+.item{
+    text-decoration: none;
+    color: black;
+    line-height: 1.2;
+}
+.item :hover{
+    cursor: pointer;
+    color: mintcream;
+}

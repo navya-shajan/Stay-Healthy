@@ -1,0 +1,17 @@
+
+*{
+    padding: 10px;
+}
+.artical-content{
+    margin: 20px;
+    padding: 10px;
+    background-color: rgb(182, 211, 194);
+}
+.wrapper-element{
+    padding: 10px;
+    font-family: sans-serif;
+}
+.para{
+    padding: 10px;
+    text-decoration: none;
+}
