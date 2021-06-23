@@ -8,7 +8,7 @@ export function ArticalContent (){
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
-      let unmounted = false;
+        let unmounted = false;
         fetch(`https://health.gov/myhealthfinder/api/v3/topicsearch.json${search}`)
         .then((response) => response.json())
         .then((res) =>{ 

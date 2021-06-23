@@ -15,9 +15,7 @@ const ArticalHolder = ({title, data,handleArticalClick}) =>{
                     }
                 </ul></div>}
         </div>
-    )  
-}
-
+    )}
 export function Aritcal() {
     let {title} = useParams();
     const history = useHistory();
@@ -32,9 +30,7 @@ export function Aritcal() {
                             if(!unmounted){
                                 setData(res.Result);
                             }
-                            
                             setIsLoading(false);
-                            
             })
             .catch((e) => {
                             console.log(e);
@@ -81,7 +77,6 @@ export function Aritcal() {
         handleArticalClick={handleArticalClick} 
         /></div>)
     }
-
 return(
     <ArticalHolder 
     title={title}
