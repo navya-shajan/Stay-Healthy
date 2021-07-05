@@ -16,6 +16,7 @@
     align-items: center;
     height: 60px;
     width: fit-content;
+    color: white;
   }
   .navbar-logo{
     color: white;
@@ -25,12 +26,10 @@
 .header-image{
   display:block;
   height: 300px;
-  width:100%;
-  
+  width:100%; 
   }
   .imagehead{
     display: block;
     height: 300px;
     width: calc(100%);
-  
   }

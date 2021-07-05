@@ -2,18 +2,21 @@
     display: grid;
     margin: 50px;
     grid-template-columns: 1fr 1fr;
-    background-color:rgb(182, 211, 194) ;
 }
 .card{
-    width: 700px;
-    border-color:black;
-    border-width: 10px;
+    width: 600px;
+    border-style: solid;
+    border-color: gray;
+    border-width: 5px;
     box-sizing: border-box;
+    padding: 5px;
     margin: 50px;
+    align-items: center;
+    background-color: rgb(240, 247, 220);
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-auto-rows: auto ;
-    gap: 20px;
+    gap: 25px;
     grid-template-areas: "image header"
                          "image content";
 

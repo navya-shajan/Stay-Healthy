@@ -1,12 +1,10 @@
 import React, {useState, useEffect} from "react";
 import Navbar from './components/Navbar';
 import {Content} from './components/Content';
-
 import {Aritcal} from './Article/Artical';
 import{ArticalContent} from './ArticalContent/ArticalContent';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './App.css';
-
 
 function App() {
   const [topics, setTopics] = useState([]);
@@ -37,7 +35,7 @@ function App() {
           <Route exact path="/" >
           <Content  data={topics} isLoading={isLoading}/>
           </Route>
-          <Route path="/artical/:id">
+          <Route path="/:title/:id">
           <ArticalContent />
           </Route>
           <Route path="/:title">

@@ -1,11 +1,25 @@
 import { useParams } from "react-router";
 import { useState, useEffect } from "react"
+import {Loader} from './../components/Loader'
 import './ArticalContent.css'
 
+const Display = ({data}) => (
+    <div className="artical-content">
+        <div className="heading"><h1 key={data[0].id}>{data[0].Title}</h1></div>
+            {data[0].Sections.section.map((elements, i) =>{
+                 return(
+                  <div className="wrapper-element" key={elements.Title}>
+                  <h3 key={i}>{elements.Title}</h3>
+                  <p dangerouslySetInnerHTML={ {__html: elements.Content} } className="para" key={i+1} />
+                  </div>
+            )})}     
+    </div>
+);
 export function ArticalContent (){
     const {id} = useParams();
     const search = `?TopicId=${id}`;
     const [data, setData] = useState([]);
+    //const [count, setCount] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         let unmounted = false;
@@ -25,19 +39,13 @@ export function ArticalContent (){
           unmounted = true;
         }
     }, [search, isLoading])
-   
+
     if(isLoading){
-        return  <div>LOADING...</div>
-      }
-       return( 
-        <div className="artical-content">
-            {data && data[0].Sections.section.map((elements) =>{
-                return ( 
-                  <div key={elements.Title} className="wrapper-element">
-                  <h3>{elements.Title}</h3>
-                  <p dangerouslySetInnerHTML={ {__html: elements.Content} } className="para" />
-                  </div>
-                  )}
-              )}
-        </div>)
+        return  <div><Loader /></div>
+      } 
+    return (
+        <>
+        {data && <Display  data={data}/> }
+        </>
+        ) 
 }

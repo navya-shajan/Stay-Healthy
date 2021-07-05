@@ -3,10 +3,6 @@ import {Link} from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar(){
-/*const [click, setClick] = useState(false);
-const handleClick = () => setClick(!false);
-const closeMobileMenu = () =>setClick(false);
-const screenWidth = window.innerWidth();*/
     return(
         <>
         <nav className="navbar">

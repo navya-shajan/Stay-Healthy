@@ -1,9 +1,9 @@
-import {useParams} from "react-router-dom"
+import {useParams, Link} from "react-router-dom"
 import {useEffect, useState} from "react"
-import { useHistory } from "react-router";
+import {Loader} from './../components/Loader';
 import './Artical.css'
 
-const ArticalHolder = ({title, data,handleArticalClick}) =>{
+const ArticalHolder = ({title, data}) =>{
     return(
         <div className="artical-container">
            {data && <div> 
@@ -11,17 +11,16 @@ const ArticalHolder = ({title, data,handleArticalClick}) =>{
                 <ul> 
                     {data.Resources.Resource
                         .filter(item => item.Categories.includes(title))
-                        .map((item) => <li key={item.Id} className="item" onClick={() => handleArticalClick(item.Id) }>{item.Title}</li>)  
+                        .map((item) => <li key={item.Title}><Link to={{pathname: `/${title}/${item.Id}`}} key={item.Id} className="item" >{item.Title}</Link></li>)  
                     }
                 </ul></div>}
         </div>
     )}
 export function Aritcal() {
     let {title} = useParams();
-    const history = useHistory();
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    
+
         useEffect(() => {
             let unmounted = false;
             fetch(`https://health.gov/myhealthfinder/api/v3/topicsearch.json`)
@@ -33,20 +32,19 @@ export function Aritcal() {
                             setIsLoading(false);
             })
             .catch((e) => {
-                            console.log(e);
                             setIsLoading(false);
+                            console.log(e);
+                            return (<div><h1>{e}</h1></div>);
+                            
             })
             return () =>{
                 unmounted = true;
             }
-        }, [isLoading])
+        }, [])
         
     if(isLoading){
-       return <div>LOADING</div>
+       return <div><Loader /></div>
     }
-    const handleArticalClick = (itemId) => {
-        history.push(`/artical/${itemId}`);
-     }
     if(title === 'Mental Health and Relationships'){
        const title1 = 'Mental Health';
        const title2 = 'Relationships';
@@ -54,12 +52,12 @@ export function Aritcal() {
         <ArticalHolder 
         title={title1}
         data={data}
-        handleArticalClick={handleArticalClick}
+        
         />
         <ArticalHolder 
         title={title2}
         data={data}
-        handleArticalClick={handleArticalClick}
+        
     /></div>
        )    
     }
@@ -69,19 +67,16 @@ export function Aritcal() {
         return(<div><ArticalHolder
         title={title1}
         data={data}
-        handleArticalClick={handleArticalClick} 
-        />
+         />
         <ArticalHolder
         title={title2}
         data={data}
-        handleArticalClick={handleArticalClick} 
         /></div>)
     }
 return(
     <ArticalHolder 
     title={title}
     data={data}
-    handleArticalClick={handleArticalClick}
-    />
+   />
 )   
 }
